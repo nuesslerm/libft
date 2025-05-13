@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 00:43:31 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/13 01:33:04 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/13 02:31:22 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ size_t				ft_strlen(const char *s);
  * @brief Fills the first n bytes of the memory area `b` with the constant
  * byte `c`.
  * @param b Pointer to the memory area.
- * @param c The byte value to fill with.
+ * @param c The byte value to fill with (converted to unsigned char).
  * @param n The number of bytes to fill.
  * @return A pointer to the memory area `b`.
  */
@@ -156,10 +156,10 @@ char				*ft_strrchr(const char *s, int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
- * @brief Scans the first n bytes of memory area `s` for the first
+ * @brief Scans the first `n` bytes of memory area `s` for the first
  * instance of `c`.
  * @param s The memory area to scan.
- * @param c The byte to find.
+ * @param c The byte to find (converted to unsigned char).
  * @param n The number of bytes to scan.
  * @return A pointer to the matching byte or `NULL` if not found.
  */
@@ -195,10 +195,10 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 int					ft_atoi(const char *str);
 
 /**
- * @brief Allocates memory for an array of `count` elements of `size` bytes,
- * each initialized to zero.
+ * @brief Allocates contiguous memory for an array of `count` elements of
+ * `size` bytes each, initialized to zero.
  * @param count The number of elements.
- * @param size The size of each element.
+ * @param size The size of each element (in bytes).
  * @return A pointer to the allocated memory, or `NULL` if allocation fails.
  */
 void				*ft_calloc(size_t count, size_t size);
