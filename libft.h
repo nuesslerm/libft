@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 00:43:31 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/13 16:11:46 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/13 22:49:35 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,9 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 /**
- * @brief Appends `src` to `dst`, `NULL`-terminating.
+ * @brief Appends `src` to end of `dst`, `NULL`-terminating.
  * Appends at most `dstsize - strlen(dst) - 1` bytes.
+ *
  * @param dst Destination buffer.
  * @param src Source string.
  * @param dstsize Size of the destination buffer.
