@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/13 02:50:41 by mnussler          #+#    #+#             */
+/*   Updated: 2025/05/13 03:10:36 by mnussler         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
@@ -16,10 +28,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else if (d > s)
 	{
-		d += len;
-		s += len;
+		d += len - 1;
+		s += len - 1;
 		while (len--)
-			*--d = *--s;
+			*d-- = *s--;
 	}
 	return (dst);
 }

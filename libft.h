@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 00:43:31 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/13 02:31:22 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/13 03:15:52 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,14 @@ void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 
 /**
- * @brief Copies `n` bytes from `src` to `dst`. Memory areas may overlap.
+ * @brief Copies `len` bytes from `src` to `dst`. Memory areas may overlap.
+ * Copies the bytes in a non-destructive manner.
  * @param dst Destination memory area.
  * @param src Source memory area.
- * @param n Number of bytes to copy.
+ * @param len Number of bytes to copy.
  * @return A pointer to `dst`.
  */
-void				*ft_memmove(void *dst, const void *src, size_t n);
+void				*ft_memmove(void *dst, const void *src, size_t len);
 
 /**
  * @brief Copies up to `dstsize - 1` chars from `src` to `dst`,
@@ -117,14 +118,14 @@ size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 /**
  * @brief Converts a lower-case letter to the corresponding upper-case letter.
- * @param c The character to convert.
+ * @param c The ASCII value of the character to convert
  * @return The converted letter, or `c` if the conversion was not possible.
  */
 int					ft_toupper(int c);
 
 /**
  * @brief Converts an upper-case letter to the corresponding lower-case letter.
- * @param c The character to convert.
+ * @param c The ASCII value of the character to convert
  * @return The converted letter, or `c` if the conversion was not possible.
  */
 int					ft_tolower(int c);
@@ -132,7 +133,7 @@ int					ft_tolower(int c);
 /**
  * @brief Locates the first occurrence of `c` in the string `s`.
  * @param s The string to search.
- * @param c The character to find.
+ * @param c The ASCII value of the character to find
  * @return A pointer to the located char, or `NULL` if not found.
  */
 char				*ft_strchr(const char *s, int c);
@@ -140,18 +141,17 @@ char				*ft_strchr(const char *s, int c);
 /**
  * @brief Locates the last occurrence of `c` in the string `s`.
  * @param s The string to search.
- * @param c The character to find.
+ * @param c The ASCII value of the character to find
  * @return A pointer to the located char, or `NULL` if not found.
  */
 char				*ft_strrchr(const char *s, int c);
 
 /**
- * @brief Compares the first n bytes of strings `s1` and `s2`.
+ * @brief Compares the first `n` bytes of strings `s1` and `s2`.
  * @param s1 The first string.
  * @param s2 The second string.
  * @param n The maximum number of bytes to compare.
- * @return `int` less than, equal to, or greater than zero,
- * if `s1` <, ==, or > `s2`.
+ * @return An integer <, ==, or > to 0, if `s1` <, ==, or > `s2`.
  */
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
@@ -170,8 +170,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
  * @param s1 The first memory area.
  * @param s2 The second memory area.
  * @param n The number of bytes to compare.
- * @return An integer less than, equal to, or greater than zero,
- * if `s1` <, ==, or > `s2`.
+ * @return An integer <, ==, or > to 0, if `s1` <, ==, or > `s2`.
  */
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 
