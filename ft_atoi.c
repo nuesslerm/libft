@@ -1,37 +1,64 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/13 02:07:13 by mnussler          #+#    #+#             */
+/*   Updated: 2025/05/13 02:07:17 by mnussler         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+#include <limits.h>
 
 static int	is_whitespace(char c)
 {
-	return (c == ' ' || c == '\t' || c == '\n' || \
-			c == '\v' || c == '\f' || c == '\r');
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r');
+}
+
+static int	will_overflow(int result, int digit, int sign)
+{
+	if (sign == 1)
+	{
+		if (result > (INT_MAX - digit) / 10)
+			return (1);
+	}
+	else
+	{
+		if (-result < (INT_MIN + digit) / 10)
+			return (1);
+	}
+	return (0);
 }
 
 int	ft_atoi(const char *str)
 {
-	int		sign;
-	long	result;
+	int	i;
+	int	sign;
+	int	result;
+	int	digit;
 
+	i = 0;
 	sign = 1;
 	result = 0;
-	while (is_whitespace(*str))
-		str++;
-	if (*str == '-')
+	while (is_whitespace(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		sign = -1;
-		str++;
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	else if (*str == '+')
-		str++;
-	while (ft_isdigit(*str))
+	while (ft_isdigit(str[i]))
 	{
-		if (sign == 1 && (result > (long)((unsigned long)~0 >> 1) / 10 || \
-			(result == (long)((unsigned long)~0 >> 1) / 10 && (*str - '0') > (int)((unsigned long)~0 >> 1) % 10)))
-			return (-1);
-		else if (sign == -1 && (result > (long)((unsigned long)~0 >> 1) / 10 || \
-			(result == (long)((unsigned long)~0 >> 1) / 10 && (*str - '0') > (int)(((unsigned long)~0 >> 1) + 1) % 10)))
-			return (0);
-		result = result * 10 + (*str - '0');
-		str++;
+		digit = str[i] - '0';
+		if (will_overflow(result, digit, sign))
+			break ;
+		result = 10 * result + digit;
+		i++;
 	}
-	return ((int)(result * sign));
+	return (result * sign);
 }
