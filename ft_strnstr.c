@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:59:03 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/13 16:13:20 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/13 23:55:57 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	n_idx;
 	size_t	needle_len;
 
-	if (!*needle)
+	if (!needle || *needle == '\0')
 		return ((char *)haystack);
 	needle_len = ft_strlen(needle);
 	h_idx = 0;

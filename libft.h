@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 00:43:31 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/13 22:49:35 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/13 23:51:17 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include <stddef.h>
 
-/* Part 1 - Libc Functions */
+// ---------------------------------------------------------------------
+//  Part 1 - Libc Functions
+// ---------------------------------------------------------------------
 
 /**
  * @brief Checks for an alphabetic character.
@@ -108,7 +110,6 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 /**
  * @brief Appends `src` to end of `dst`, `NULL`-terminating.
  * Appends at most `dstsize - strlen(dst) - 1` bytes.
- *
  * @param dst Destination buffer.
  * @param src Source string.
  * @param dstsize Size of the destination buffer.
@@ -210,7 +211,9 @@ void				*ft_calloc(size_t count, size_t size);
  */
 char				*ft_strdup(const char *s1);
 
-/* Part 2 - Additional Functions */
+// ---------------------------------------------------------------------
+//  Part 2 - Additional Functions
+// ---------------------------------------------------------------------
 
 /**
  * @brief Allocates and returns a substring from string `s` starting at `start`
@@ -303,7 +306,9 @@ void				ft_putendl_fd(char *s, int fd);
  */
 void				ft_putnbr_fd(int n, int fd);
 
-/* Bonus Part - Linked List Functions */
+// ---------------------------------------------------------------------
+//  Bonus Part - Linked List Functions
+// ---------------------------------------------------------------------
 
 /**
  * @brief Structure for a singly linked list node.
