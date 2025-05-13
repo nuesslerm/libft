@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 00:43:31 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/13 23:51:17 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/14 00:20:39 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,8 +228,10 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 /**
  * @brief Allocates and returns a new string, result of concatenating
  * `s1` and `s2`.
- * @param s1 The first string.
- * @param s2 The second string.
+ * @param s1 The first string (can be `NULL`, which is treated as an empty
+ * string).
+ * @param s2 The second string (can be `NULL`, which is treated as an empty
+ * string).
  * @return The new string, or `NULL` if allocation fails.
  */
 char				*ft_strjoin(char const *s1, char const *s2);

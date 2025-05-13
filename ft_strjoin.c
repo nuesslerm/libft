@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/14 00:27:53 by mnussler          #+#    #+#             */
+/*   Updated: 2025/05/14 00:28:04 by mnussler         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdlib.h>
 
@@ -17,11 +29,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!joined_str)
 		return (NULL);
 	if (s1)
-		ft_memcpy(joined_str, s1, s1_len);
-	else
-		*joined_str = '\0';
+		ft_strlcpy(joined_str, s1, s1_len + 1);
 	if (s2)
-		ft_memcpy(joined_str + s1_len, s2, s2_len);
-	joined_str[s1_len + s2_len] = '\0';
+		ft_strlcpy(joined_str + s1_len, s2, s2_len + 1);
 	return (joined_str);
 }
