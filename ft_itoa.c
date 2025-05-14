@@ -1,50 +1,65 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/14 23:32:21 by mnussler          #+#    #+#             */
+/*   Updated: 2025/05/14 23:32:21 by mnussler         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdlib.h>
 
+static char	*ft_fill_chars_from_nbr(char *str, unsigned int nbr, int len)
+{
+	while (nbr > 0)
+	{
+		str[len--] = '0' + (nbr % 10);
+		nbr = nbr / 10;
+	}
+	return (str);
+}
+
+static int	ft_get_length(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
+	{
+		len++;
+		n = n / 10;
+	}
+	return (len);
+}
+
 char	*ft_itoa(int n)
 {
-	long	lnb;
-	int		length;
-	char	*res;
-	int		sign;
+	char			*str;
+	int				len;
+	unsigned int	nbr;
+	int				sign;
 
-	lnb = n;
-	sign = 1;
-	if (lnb < 0)
-	{
-		sign = -1;
-		lnb = -lnb;
-	}
-	length = 0;
-	if (lnb == 0)
-		length = 1;
-	else
-	{
-		long temp = lnb;
-		while (temp > 0)
-		{
-			temp /= 10;
-			length++;
-		}
-	}
-	if (sign == -1)
-		length++;
-	res = (char *)malloc(sizeof(char) * (length + 1));
-	if (!res)
+	len = ft_get_length(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
-	res[length] = '\0';
-	length--;
-	if (lnb == 0)
-		res[0] = '0';
-	else
+	str[len--] = '\0';
+	str[0] = '0';
+	sign = 1;
+	if (n < 0)
 	{
-		while (lnb > 0)
-		{
-			res[length--] = (lnb % 10) + '0';
-			lnb /= 10;
-		}
+		sign *= -1;
+		nbr = -n;
+		str[0] = '-';
 	}
-	if (sign == -1 && n != 0)
-		res[0] = '-';
-	return (res);
+	else
+		nbr = n;
+	str = ft_fill_chars_from_nbr(str, nbr, len);
+	return (str);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/14 22:39:24 by mnussler          #+#    #+#             */
+/*   Updated: 2025/05/14 22:39:24 by mnussler         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdlib.h>
 
@@ -24,7 +36,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trimmed_str = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (!trimmed_str)
 		return (NULL);
-	ft_memcpy(trimmed_str, s1 + start, end - start);
-	trimmed_str[end - start] = '\0';
+	ft_strlcpy(trimmed_str, s1 + start, end - start + 1);
 	return (trimmed_str);
 }

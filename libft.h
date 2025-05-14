@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 00:43:31 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/14 00:20:39 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/14 22:57:33 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,7 +282,8 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 /**
  * @brief Outputs the character `c` to the file descriptor `fd`.
- * @param c The character to output.
+ * Doesn't print if `c` is negative.
+ * @param c The character to output (should be valid ASCII character).
  * @param fd The file descriptor.
  */
 void				ft_putchar_fd(char c, int fd);
