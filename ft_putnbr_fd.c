@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/14 23:51:29 by mnussler          #+#    #+#             */
+/*   Updated: 2025/05/15 00:05:39 by mnussler         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
@@ -7,11 +19,6 @@ void	ft_putnbr_fd(int n, int fd)
 	if (fd < 0)
 		return ;
 	nbr_long = n;
-	if (nbr_long == 0)
-	{
-		ft_putchar_fd('0', fd);
-		return ;
-	}
 	if (nbr_long < 0)
 	{
 		ft_putchar_fd('-', fd);
