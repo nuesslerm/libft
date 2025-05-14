@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 02:37:21 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/13 02:40:38 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/14 23:41:23 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char const	*ptr;
-	unsigned char c_char;
+	unsigned char		c_char;
 	size_t				i;
 
 	ptr = (unsigned char const *)s;

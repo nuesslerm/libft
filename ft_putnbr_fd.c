@@ -5,12 +5,12 @@ void	ft_putnbr_fd(int n, int fd)
 	long	nbr_long;
 
 	if (fd < 0)
-		return;
+		return ;
 	nbr_long = n;
 	if (nbr_long == 0)
 	{
 		ft_putchar_fd('0', fd);
-		return;
+		return ;
 	}
 	if (nbr_long < 0)
 	{

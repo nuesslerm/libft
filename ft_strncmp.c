@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:10:52 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/13 16:11:47 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/14 23:41:37 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char const	*p1;
 	unsigned char const	*p2;
-	size_t	i;
+	size_t				i;
 
 	p1 = (unsigned char const *)s1;
 	p2 = (unsigned char const *)s2;

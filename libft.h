@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 00:43:31 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/14 22:57:33 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/14 23:49:15 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,14 +282,15 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 /**
  * @brief Outputs the character `c` to the file descriptor `fd`.
- * Doesn't print if `c` is negative.
- * @param c The character to output (should be valid ASCII character).
+ * Doesn't output if `fd` is negative.
+ * @param c The character to output.
  * @param fd The file descriptor.
  */
 void				ft_putchar_fd(char c, int fd);
 
 /**
  * @brief Outputs the string `s` to the file descriptor `fd`.
+ * Doesn't output if `s` is `NULL` or `fd` is negative.
  * @param s The string to output.
  * @param fd The file descriptor.
  */
@@ -297,6 +298,7 @@ void				ft_putstr_fd(char *s, int fd);
 
 /**
  * @brief Outputs the string `s` to `fd`, followed by a newline.
+ * Doesn't output if `s` is `NULL` or `fd` is negative.
  * @param s The string to output.
  * @param fd The file descriptor.
  */
@@ -304,6 +306,7 @@ void				ft_putendl_fd(char *s, int fd);
 
 /**
  * @brief Outputs the integer `n` to the file descriptor `fd`.
+ * Doesn't output if `fd` is negative.
  * @param n The integer to output.
  * @param fd The file descriptor.
  */
