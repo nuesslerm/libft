@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 00:43:31 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/15 00:10:38 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/15 00:37:04 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -337,6 +337,7 @@ t_list				*ft_lstnew(void *content);
 
 /**
  * @brief Adds the element `new` at the beginning of the list `lst`.
+ * Exits early if `lst` or `new` is `NULL`.
  * @param lst A pointer to the pointer of the first element of the list.
  * @param new The element to add to the list.
  */
@@ -358,6 +359,7 @@ t_list				*ft_lstlast(t_list *lst);
 
 /**
  * @brief Adds the element `new` at the end of the list `lst`.
+ * Creates a first element if `lst` is empty.
  * @param lst A pointer to the pointer of the first element of the list.
  * @param new The element to add to the list.
  */
@@ -366,6 +368,8 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 /**
  * @brief Frees the memory of the element's content using `del` and frees the
  * element.
+ * Does not also free the next element.
+ * Exits early if `lst` or `del` is `NULL`.
  * @param lst The element to free.
  * @param del The function used to delete the content.
  */
@@ -374,22 +378,25 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 /**
  * @brief Deletes and frees the given element and all successors using `del`.
  * Sets list pointer to `NULL`.
+ * Exits early if `lst` or `del` is `NULL`.
  * @param lst A pointer to the pointer of the first element of the list.
  * @param del The function used to delete the content of each element.
  */
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 
 /**
- * @brief Iterates the list `lst` and applies function `f` to the content of
- * each element.
+ * @brief Iterates over the list `lst` and applies function `f` to the content
+ * of each element.
+ * Exits early if `lst` or `f` is `NULL`.
  * @param lst The beginning of the list.
  * @param f The function to apply to each element's content.
  */
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 
 /**
- * @brief Iterates list `lst`, applies `f` to each element's content,
+ * @brief Iterates over the list `lst`, applies `f` to each element's content,
  * creating a new list. Uses `del` on error.
+ * Exits early if `lst`, `f`, or `del` is `NULL`.
  * @param lst The beginning of the list.
  * @param f The function to apply to the content of each element.
  * @param del The function used to delete the content of an element if needed.
