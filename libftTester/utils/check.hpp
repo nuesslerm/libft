@@ -14,14 +14,9 @@
 #  include <stdlib.h>
 # endif
 
-void	title(const char *s)
-{
-	std::ostringstream ss;
-	ss << FG_LGRAY << s;
-	write(1, ss.str().c_str(), ss.str().size());
-}
 using namespace	std;
 
+void			title(const char *s);
 void			check(bool succes);
 void			mcheck(void *p, size_t required_size);
 

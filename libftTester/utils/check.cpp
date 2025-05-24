@@ -3,6 +3,13 @@
 
 extern int	iTest;
 
+void	title(const char *s)
+{
+	std::ostringstream ss;
+	ss << FG_LGRAY << s;
+	write(1, ss.str().c_str(), ss.str().size());
+}
+
 void	check(bool succes)
 {
 	if (succes)
