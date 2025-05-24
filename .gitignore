@@ -3,5 +3,6 @@
 *.pdf
 *.a
 *.dSYM
+
 .cursor
-.vscode
+# .vscode

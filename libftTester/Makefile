@@ -40,7 +40,11 @@ bonus_start: update message
 	@tput setaf 5 && echo [Bonus]
 
 update:
+ifeq ($(IN_DOCKER),TRUE)
+	@echo "[SKIPPED] Git pull inside Docker"
+else
 	@git pull
+endif
 
 message: checkmakefile
 	@tput setaf 3 && echo "If all your tests are OK and the moulinette KO you, please run the tester with valgrind (see README)"
