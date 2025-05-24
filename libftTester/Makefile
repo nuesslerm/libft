@@ -14,10 +14,15 @@ CC		= clang++
 CFLAGS	= -g3 -ldl -gdwarf-4 -std=c++11 -I utils/ -I$(LIBFT_PATH) 
 UNAME = $(shell uname -s)
 ifeq ($(UNAME), Linux)
-	VALGRIND = valgrind -q --leak-check=full
+	VALGRIND = valgrind --quiet --leak-check=full --show-leak-kinds=all --track-origins=yes
+	VALGRIND_MSG = [VALGRIND ENABLED]
+else
+	VALGRIND_MSG = [VALGRIND DISABLED - Not Linux]
 endif
 ifeq ($(IN_DOCKER),TRUE)
 	LIBFT_PATH = /project/
+	VALGRIND = valgrind --quiet --leak-check=full --show-leak-kinds=all --track-origins=yes
+	VALGRIND_MSG = [VALGRIND ENABLED - Docker]
 endif
 
 $(MANDATORY): %: mandatory_start
@@ -33,11 +38,13 @@ mandatory_start: update message
 	@tput setaf 6
 	make -C $(LIBFT_PATH)
 	@tput setaf 4 && echo [Mandatory]
+	@tput setaf 3 && echo "$(VALGRIND_MSG)"
 
 bonus_start: update message
 	@tput setaf 6
 	make bonus -C $(LIBFT_PATH)
 	@tput setaf 5 && echo [Bonus]
+	@tput setaf 3 && echo "$(VALGRIND_MSG)"
 
 update:
 ifeq ($(IN_DOCKER),TRUE)
@@ -56,7 +63,14 @@ $(addprefix docker, $(MANDATORY)) $(addprefix docker, $(BONUS)) dockerm dockerb 
 	@docker rm -f mc > /dev/null 2>&1 || true
 	docker build -qt mi .
 	docker run -e IN_DOCKER=TRUE -dti --name mc -v $(LIBFT_PATH):/project/ -v $(PARENT_DIR)/libftTester:/project/libftTester mi
+	docker exec -ti mc make fclean -C libftTester || true
 	docker exec -ti mc make $* -C libftTester || true
+	# docker run --rm -ti \
+	# 	-e IN_DOCKER=TRUE \
+	# 	--name mc \
+	# 	-v $(LIBFT_PATH):/project/ \
+	# 	-v $(PARENT_DIR)/libftTester:/project/libftTester \
+	# 	mi bash
 	@docker rm -f mc > /dev/null 2>&1
 
 m: $(MANDATORY)

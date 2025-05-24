@@ -13,8 +13,8 @@ extern "C"
 int	iTest = 1;
 int	main(void)
 {
-	char	s[] = {-128, 0, 127, 0};
-	char	sCpy[] = {-128, 0, 127, 0};
+	char	s[] = {static_cast<char>(-128), 0, 127, 0};
+	char	sCpy[] = {static_cast<char>(-128), 0, 127, 0};
 	char	s2[] = {0, 0, 127, 0};
 	char	s3[] = {0, 0, 42, 0};
 
