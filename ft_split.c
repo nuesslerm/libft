@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 22:50:41 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/25 15:16:32 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/25 15:20:06 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static char	*allocate_word(char const *str, int const word_len,
 	word = (char *)malloc(sizeof(char) * (word_len + 1));
 	if (!word)
 	{
-		free_split(result_on_failure);
 		i = 0;
 		while (result_on_failure[i])
 		{

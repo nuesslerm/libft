@@ -11,7 +11,7 @@ BONUS			= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone lstclear lst
 VSOPEN			= $(addprefix vs, $(MANDATORY)) $(addprefix vs, $(BONUS))
 
 CC		= clang++
-CFLAGS	= -g3 -ldl -gdwarf-4 -std=c++11 -I utils/ -I$(LIBFT_PATH) 
+CFLAGS	= -g3 -ldl -gdwarf-4 -std=c++11 -I utils/ -I$(LIBFT_PATH)
 UNAME = $(shell uname -s)
 ifeq ($(UNAME), Linux)
 	VALGRIND = valgrind --quiet --leak-check=full --show-leak-kinds=all --track-origins=yes
@@ -34,24 +34,17 @@ $(BONUS): %: bonus_start
 $(VSOPEN): vs%:
 	@code $(TESTS_PATH)ft_$*_test.cpp
 
-mandatory_start: update message
+mandatory_start: message
 	@tput setaf 6
 	make -C $(LIBFT_PATH)
 	@tput setaf 4 && echo [Mandatory]
 	@tput setaf 3 && echo "$(VALGRIND_MSG)"
 
-bonus_start: update message
+bonus_start: message
 	@tput setaf 6
 	make bonus -C $(LIBFT_PATH)
 	@tput setaf 5 && echo [Bonus]
 	@tput setaf 3 && echo "$(VALGRIND_MSG)"
-
-update:
-ifeq ($(IN_DOCKER),TRUE)
-	@echo "[SKIPPED] Git pull inside Docker"
-else
-	@git pull
-endif
 
 message: checkmakefile
 	@tput setaf 3 && echo "If all your tests are OK and the moulinette KO you, please run the tester with valgrind (see README)"
@@ -75,7 +68,7 @@ $(addprefix docker, $(MANDATORY)) $(addprefix docker, $(BONUS)) dockerm dockerb 
 
 m: $(MANDATORY)
 b: $(BONUS)
-a: m b 
+a: m b
 
 clean:
 	make clean -C $(LIBFT_PATH) && rm -rf a.out*
@@ -83,4 +76,4 @@ clean:
 fclean:
 	make fclean -C $(LIBFT_PATH) && rm -rf a.out*
 
-.PHONY:	mandatory_start m bonus_start b a fclean clean update message $(VSOPEN) $(MAIL)
+.PHONY:	mandatory_start m bonus_start b a fclean clean message $(VSOPEN) $(MAIL)
