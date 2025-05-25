@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 22:50:41 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/24 01:57:06 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/25 15:16:32 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,6 @@ static int	get_word_len(char const *str, char sep)
 	return (len);
 }
 
-static void	free_split(char **words)
-{
-	int	i;
-
-	i = 0;
-	while (words[i])
-	{
-		free(words[i]);
-		++i;
-	}
-	free(words);
-}
-
 /**
  * Allocates memory for a word in the split array
  * Frees all of the previously allocated memory if a word fails to allocate
@@ -62,11 +49,19 @@ static char	*allocate_word(char const *str, int const word_len,
 		char **result_on_failure)
 {
 	char	*word;
+	int		i;
 
 	word = (char *)malloc(sizeof(char) * (word_len + 1));
 	if (!word)
 	{
 		free_split(result_on_failure);
+		i = 0;
+		while (result_on_failure[i])
+		{
+			free(result_on_failure[i]);
+			++i;
+		}
+		free(result_on_failure);
 		return (NULL);
 	}
 	ft_memcpy(word, str, word_len);
