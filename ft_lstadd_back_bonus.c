@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mnussler <mnussler@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mnussler <mnussler@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 00:25:11 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/15 00:43:03 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/30 02:33:12 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
