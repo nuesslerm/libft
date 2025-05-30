@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "name": "libft-tester-config",
+      "includePath": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/libftTester/utils"
+      ],
+      "defines": [],
+      "macFrameworkPath": [
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+      ],
+      "compilerPath": "/usr/bin/clang++",
+      "cppStandard": "c++11",
+      "intelliSenseMode": "macos-clang-arm64"
+    }
+  ],
+  "version": 4
+}
