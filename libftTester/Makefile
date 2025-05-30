@@ -76,4 +76,4 @@ clean:
 fclean:
 	make fclean -C $(LIBFT_PATH) && rm -rf a.out*
 
-.PHONY:	mandatory_start m bonus_start b a fclean clean message $(VSOPEN) $(MAIL)
+.PHONY:	mandatory_start m bonus_start b a fclean clean message $(VSOPEN)
