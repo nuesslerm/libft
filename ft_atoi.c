@@ -6,7 +6,7 @@
 /*   By: mnussler <mnussler@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 02:07:13 by mnussler          #+#    #+#             */
-/*   Updated: 2025/05/30 02:51:33 by mnussler         ###   ########.fr       */
+/*   Updated: 2025/05/30 03:41:26 by mnussler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static int	is_whitespace(char c)
 
 int	ft_atoi(const char *str)
 {
-	int			i;
-	int			sign;
+	int				i;
+	int				sign;
 	unsigned int	result;
 
 	i = 0;
